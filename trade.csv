@@ -1,0 +1,6 @@
+transaction_type,created_at,quantity,ticker
+buy,2017-05-08T13:37:00Z,10,AAPL
+buy,2017-05-08T14:37:00Z,1,ADS
+buy,2017-07-10T13:30:00Z,1,AAPL
+sell,2017-06-08T14:10:00Z,1,ADS
+buy,2017-05-08T15:20:00Z,1,AAPL

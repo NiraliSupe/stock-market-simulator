@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+    db:
+        build:
+            context: ./db
+        image: stock_db
+        container_name: stock-simulator-db
+        environment:
+            - POSTGRES_PASSWORD=postgres
+        ports:
+            - "54321:5432"
+        volumes:
+            - stock-db:/var/lib/postgresql/data
+
+    backend:
+        build:
+            context: ./backend
+        image: stock_backend
+        container_name: stock-simulator-backend
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./backend/backend:/backend
+        tty: true
+        #stdin_open: true
+        command: ./manage.py runserver 0.0.0.0:8000
+        depends_on:
+            - db
+
+volumes:
+    stock-db:
+        name: stock-db
